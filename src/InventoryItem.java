@@ -6,7 +6,6 @@ public abstract class InventoryItem {
     int quantity;
     String category;
 
-
     public InventoryItem(String newName, int defaultQuantity, String category) {
         this.name = newName;
         this.quantity = defaultQuantity;
@@ -17,7 +16,7 @@ public abstract class InventoryItem {
         System.out.println("Please enter the item number you want to change the quantity of.");
         int itemNum = Integer.valueOf(Inventory.scanner.nextLine());
 
-        InventoryItem item = Inventory.items.get(itemNum - 1);
+        InventoryItem item = Inventory.currentItems.get(itemNum - 1);
 
         System.out.println("Please enter the new quantity.");
         int newQuantity = Integer.valueOf(Inventory.scanner.nextLine());
@@ -29,8 +28,6 @@ public abstract class InventoryItem {
         System.out.println("Please enter the item number you wish to remove");
         int itemNum = Integer.valueOf(Inventory.scanner.nextLine());
 
-        Inventory.items.remove(itemNum -1);
+        Inventory.currentItems.remove(itemNum -1);
     }
-
-
 }
