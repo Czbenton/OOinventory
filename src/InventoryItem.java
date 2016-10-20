@@ -6,6 +6,8 @@ public abstract class InventoryItem {
     int quantity;
     String category;
 
+    public InventoryItem() {}
+
     public InventoryItem(String newName, int defaultQuantity, String category) {
         this.name = newName;
         this.quantity = defaultQuantity;

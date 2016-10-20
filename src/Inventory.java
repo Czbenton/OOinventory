@@ -13,8 +13,8 @@ public class Inventory {
 
         while (true) {
             int i = 1;
-            for (InventoryItem listItems : currentItems) {
-                System.out.printf("\n%s. [%s] %s %s\n", i, listItems.quantity, listItems.name, listItems.category);
+            for (InventoryItem listItem : currentItems) {
+                System.out.printf("\n%s. [%s] %s %s\n", i, listItem.quantity, listItem.name, listItem.category);
                 i++;
             }
             System.out.println("\n1. Add new item to your inventory.");
@@ -35,15 +35,12 @@ public class Inventory {
                         }
                     }
                     break;
-                
                 case "2":
                     InventoryItem.removeItem();
                     break;
-                
                 case "3":
                     InventoryItem.changeQuantity();
                     break;
-                
                 default:
                     System.out.println("Please enter a valid option.\n");
                     break;
@@ -56,7 +53,7 @@ public class Inventory {
         String userInputItemName = Inventory.scanner.nextLine();
 
         System.out.println("Please enter quantity");
-        int userInputItemQuantity  = Integer.parseInt(Inventory.scanner.nextLine());
+        int userInputItemQuantity = Integer.parseInt(Inventory.scanner.nextLine());
 
         System.out.printf("Please enter the appropriate category for %s. " +
                 "\n[electronics] [tools] [home appliances] [gardening] or [building supplies] ", userInputItemName);
@@ -66,25 +63,20 @@ public class Inventory {
 
         switch (userInputItemCategory) {
             case "electronics":
-                newItem = new Electronics(userInputItemName, userInputItemQuantity );
+                newItem = new Electronics(userInputItemName, userInputItemQuantity);
                 return newItem;
-            
             case "tools":
-                newItem = new Tools(userInputItemName, userInputItemQuantity );
+                newItem = new Tools(userInputItemName, userInputItemQuantity);
                 return newItem;
-            
             case "home appliances":
-                newItem = new HomeAppliances(userInputItemName, userInputItemQuantity );
+                newItem = new HomeAppliances(userInputItemName, userInputItemQuantity);
                 return newItem;
-            
             case "gardening":
-                newItem = new Gardening(userInputItemName, userInputItemQuantity );
+                newItem = new Gardening(userInputItemName, userInputItemQuantity);
                 return newItem;
-            
             case "building supplies":
-                newItem = new BuildingSupplies(userInputItemName, userInputItemQuantity );
+                newItem = new BuildingSupplies(userInputItemName, userInputItemQuantity);
                 return newItem;
-            
             default:
                 throw new Exception("bad cat name");
         }
